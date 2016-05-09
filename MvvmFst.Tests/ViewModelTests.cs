@@ -41,7 +41,7 @@ namespace MvvmFst.Tests
 
             // act
             var value = sut.Name;
-
+             
             // assert
             value.Should().Be("Batygin");
         }
