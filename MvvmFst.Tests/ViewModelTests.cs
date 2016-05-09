@@ -13,12 +13,12 @@ namespace MvvmFst.Tests
     [TestFixture]
     public class ViewModelTests
     {
-        private SimpleViewModel sut;
+        private ViewModelWithSimpleProperty sut;
 
         [SetUp]
         public void Setup()
         {
-            sut = new SimpleViewModel();
+            sut = new ViewModelWithSimpleProperty();
         }
 
         [Test]
@@ -47,7 +47,7 @@ namespace MvvmFst.Tests
         }
     }
 
-    public class SimpleViewModel : ViewModel
+    public class ViewModelWithSimpleProperty : ViewModel
     {
         public string Name
         {
