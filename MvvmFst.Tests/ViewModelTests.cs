@@ -54,7 +54,7 @@
         }
     }
 
-    public class ViewModelWithSimpleProperty : ViewModel
+    public sealed class ViewModelWithSimpleProperty : ViewModel
     {
         public string Name
         {

@@ -5,7 +5,7 @@
     using System.Runtime.CompilerServices;
     using Prism.Mvvm;
 
-    public class ViewModel : BindableBase
+    public abstract class ViewModel : BindableBase
     {
         private readonly IDictionary<string, object> properties = new Dictionary<string, object>();
 
