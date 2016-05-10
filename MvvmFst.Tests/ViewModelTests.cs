@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using FluentAssertions;
-using MvvmFsm;
-using NUnit.Framework;
-
-namespace MvvmFst.Tests
+﻿namespace MvvmFst.Tests
 {
+    using FluentAssertions;
+    using MvvmFsm;
+    using NUnit.Framework;
+
     [TestFixture]
     public class ViewModelTests
     {
@@ -44,6 +38,19 @@ namespace MvvmFst.Tests
              
             // assert
             value.Should().Be("Batygin");
+        }
+
+        [Test]
+        public void WhenPropertyChangesThenNotificationPerformed()
+        {
+            // arrange
+            sut.MonitorEvents();
+
+            // act
+            sut.Name = "New value";
+
+            // assert
+            sut.ShouldRaisePropertyChangeFor(o => o.Name);
         }
     }
 

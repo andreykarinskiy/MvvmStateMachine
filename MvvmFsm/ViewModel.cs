@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using Prism.Mvvm;
-
-namespace MvvmFsm
+﻿namespace MvvmFsm
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Runtime.CompilerServices;
+    using Prism.Mvvm;
+
     public class ViewModel : BindableBase
     {
         private readonly IDictionary<string, object> properties = new Dictionary<string, object>();
@@ -42,6 +39,9 @@ namespace MvvmFsm
             }
 
             properties[propertyName] = value;
+
+            // ReSharper disable once ExplicitCallerInfoArgument
+            OnPropertyChanged(propertyName);
         }
     }
 }
