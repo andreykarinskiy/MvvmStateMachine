@@ -65,7 +65,9 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="StateableViewModel.cs" />
     <Compile Include="ViewModel.cs" />
+    <Compile Include="ViewModelState.cs" />
     <None Include="packages.config" />
     <AppDesigner Include="Properties\" />
   </ItemGroup>

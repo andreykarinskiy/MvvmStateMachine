@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Prism.Events;
-
+﻿// ReSharper disable ExplicitCallerInfoArgument
 namespace MvvmFsm
 {
+    using System.ComponentModel;
+    using Prism.Events;
+
     public abstract class HierarchicalViewModel : ViewModel
     {
         private readonly IEventAggregator eventAggregator;
@@ -16,14 +12,14 @@ namespace MvvmFsm
         {
             this.eventAggregator = eventAggregator;
 
-            SubscribeToEvents(eventAggregator);
+            SubscribeToEvents();
         }
 
-        private void SubscribeToEvents(IEventAggregator eventAggregator)
+        private void SubscribeToEvents()
         {
             eventAggregator
                 .GetEvent<PubSubEvent<PropertyChangedEventArgs>>()
-                .Subscribe(o => OnPropertyChanged(o.PropertyName));
+                .Subscribe(o => base.OnPropertyChanged(o.PropertyName));
         }
 
         protected override void OnPropertyChanged(string propertyName = null)
