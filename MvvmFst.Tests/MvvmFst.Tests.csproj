@@ -71,6 +71,7 @@
   <ItemGroup>
     <Compile Include="HierarchicalViewModelTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StateableViewModelTests.cs" />
     <Compile Include="ViewModelTests.cs" />
   </ItemGroup>
   <ItemGroup>

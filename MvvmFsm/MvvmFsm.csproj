@@ -61,11 +61,13 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EventAggregatorExtension.cs" />
     <Compile Include="HierarchicalViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="StateableViewModel.cs" />
+    <Compile Include="Trigger.cs" />
     <Compile Include="ViewModel.cs" />
     <Compile Include="ViewModelState.cs" />
     <None Include="packages.config" />

@@ -6,7 +6,7 @@ namespace MvvmFsm
 
     public abstract class HierarchicalViewModel : ViewModel
     {
-        private readonly IEventAggregator eventAggregator;
+        protected readonly IEventAggregator eventAggregator;
 
         protected HierarchicalViewModel(IEventAggregator eventAggregator)
         {
@@ -17,16 +17,14 @@ namespace MvvmFsm
 
         private void SubscribeToEvents()
         {
-            eventAggregator
-                .GetEvent<PubSubEvent<PropertyChangedEventArgs>>()
-                .Subscribe(o => base.OnPropertyChanged(o.PropertyName));
+            eventAggregator.Subscribe<PropertyChangedEventArgs>(o => base.OnPropertyChanged(o.PropertyName));
         }
 
         protected override void OnPropertyChanged(string propertyName = null)
         {
             base.OnPropertyChanged(propertyName);
 
-            eventAggregator.GetEvent<PubSubEvent<PropertyChangedEventArgs>>().Publish(new PropertyChangedEventArgs(propertyName));
+            eventAggregator.Publish(new PropertyChangedEventArgs(propertyName));
         }
     }
 }
