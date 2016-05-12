@@ -19,6 +19,8 @@
         protected virtual void ChangeState(Trigger trigger)
         {
             eventAggregator.Publish(trigger);
+
+            OnPropertyChanged(string.Empty);
         }
 
         protected virtual void ChangeState<TState>() where TState : ViewModelState

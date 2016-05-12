@@ -13,5 +13,25 @@ namespace Shell
     /// </summary>
     public partial class App : Application
     {
+        private readonly ShellBootstrapper bootstrapper;
+
+        public App()
+        {
+            this.bootstrapper = new ShellBootstrapper();
+        }
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+
+            this.bootstrapper.Run();
+        }
+
+        protected override void OnExit(ExitEventArgs e)
+        {
+            this.bootstrapper.Dispose();
+
+            base.OnExit(e);
+        }
     }
 }
