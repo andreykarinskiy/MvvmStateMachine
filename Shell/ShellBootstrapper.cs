@@ -18,9 +18,9 @@
             base.ConfigureContainer();
 
             Container
-                .RegisterFsm<ShellState>()
-                .State<RecordState>("Record")
-                .State<PlayerState>("Player");
+                .RegisterFsm<ShellViewModelState>()
+                .State<RecordViewModelState>("Record")
+                .State<PlayerViewModelState>("Player");
         }
 
         protected override DependencyObject CreateShell()

@@ -8,24 +8,24 @@ namespace Shell.ViewModels.States
 {
     using Prism.Events;
 
-    public class PlayerState : ShellState
+    public class RecordViewModelState : ShellViewModelState
     {
-        public PlayerState(IEventAggregator eventAggregator) : base(eventAggregator)
+        public RecordViewModelState(IEventAggregator eventAggregator) : base(eventAggregator)
         {
-            this.Status = "Player";
+            this.Status = "Recorder";
         }
 
-        public override bool CanRecord => false;
+        public override bool CanRecord => true;
 
-        public override bool CanPlay => true;
+        public override bool CanPlay => false;
 
         public override void SwitchToRecorder()
         {
-            this.ChangeState<RecordState>();
         }
 
         public override void SwitchToPlayer()
         {
+            ChangeState<PlayerViewModelState>();
         }
     }
 }

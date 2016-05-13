@@ -9,17 +9,15 @@
     using Prism.Events;
     using Shell.ViewModels.States;
 
-    public class ShellViewModel : StateableViewModel<ShellState>, IShell
+    public class ShellViewModelViewModel : StateableViewModel<ShellViewModelState>, IShellViewModel
     {
-        public ShellViewModel([Dependency("Record")] ShellState initialState, ShellState[] allStates, IEventAggregator eventAggregator) : base(initialState, allStates, eventAggregator)
+        public ShellViewModelViewModel([Dependency("Record")] ShellViewModelState initialViewModelState, ShellViewModelState[] allViewModelStates, IEventAggregator eventAggregator) : base(initialViewModelState, allViewModelStates, eventAggregator)
         {
-            this.Record = new DelegateCommand(this.SwitchToRecorder, () => !this.CanRecord);
-            this.Play = new DelegateCommand(this.SwitchToPlayer, () => !this.CanPlay);
         }
 
-        public ICommand Record { get; }
+        public ICommand Record => this.CurrentState.Record;
 
-        public ICommand Play { get; }
+        public ICommand Play => this.CurrentState.Play;
 
         public bool CanRecord => this.CurrentState.CanRecord;
 

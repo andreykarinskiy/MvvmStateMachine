@@ -8,9 +8,9 @@
         Title="ShellView"
         Width="525"
         Height="350"
-        mvvm:ViewModelLocator.AutoWireViewModel="True"
         mc:Ignorable="d">
     <Grid>
+        <!--  mvvm:ViewModelLocator.AutoWireViewModel="True"  -->
         <StackPanel>
             <TextBlock Text="{Binding Status}" />
             <Button Command="{Binding Record}">Record</Button>

@@ -93,11 +93,11 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ShellBootstrapper.cs" />
-    <Compile Include="ViewModels\IShell.cs" />
-    <Compile Include="ViewModels\ShellViewModel.cs" />
-    <Compile Include="ViewModels\States\PlayerState.cs" />
-    <Compile Include="ViewModels\States\RecordState.cs" />
-    <Compile Include="ViewModels\States\ShellState.cs" />
+    <Compile Include="ViewModels\IShellViewModel.cs" />
+    <Compile Include="ViewModels\ShellViewModelViewModel.cs" />
+    <Compile Include="ViewModels\States\PlayerViewModelState.cs" />
+    <Compile Include="ViewModels\States\RecordViewModelState.cs" />
+    <Compile Include="ViewModels\States\ShellViewModelState.cs" />
     <Compile Include="Views\ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
       <SubType>Code</SubType>

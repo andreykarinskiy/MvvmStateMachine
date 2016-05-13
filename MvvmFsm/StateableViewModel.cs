@@ -6,16 +6,16 @@
     public abstract class StateableViewModel<TState> : HierarchicalViewModel
         where TState : ViewModelState
     {
-        private readonly TState[] allStates;
+        private readonly TState[] allViewModelStates;
 
-        protected StateableViewModel(TState initialState, TState[] allStates, IEventAggregator eventAggregator)
+        protected StateableViewModel(TState initialViewModelState, TState[] allViewModelStates, IEventAggregator eventAggregator)
             : base(eventAggregator)
         {
-            this.allStates = allStates;
+            this.allViewModelStates = allViewModelStates;
 
             eventAggregator.Subscribe<Trigger>(ChangeState);
 
-            ChangeState(initialState);
+            ChangeState(initialViewModelState);
         }
 
         protected TState CurrentState { get; private set; }
@@ -39,12 +39,14 @@
             CurrentState = nextState;
 
             CurrentState.Enter();
+
+            this.OnPropertyChanged(string.Empty);
         }
 
         private TState FindState(Trigger trigger)
         {
             var stateTrigger = trigger;
-            return allStates.SingleOrDefault(o => o.GetType() == stateTrigger.State);
+            return this.allViewModelStates.SingleOrDefault(o => o.GetType() == stateTrigger.State);
         }
     }
 }

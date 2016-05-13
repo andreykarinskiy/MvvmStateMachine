@@ -6,14 +6,19 @@ using System.Threading.Tasks;
 
 namespace Shell.ViewModels.States
 {
+    using System.Windows.Input;
+
     using MvvmFsm;
 
+    using Prism.Commands;
     using Prism.Events;
 
-    public abstract class ShellState : ViewModelState, IShell
+    public abstract class ShellViewModelState : ViewModelState, IShellViewModel
     {
-        protected ShellState(IEventAggregator eventAggregator) : base(eventAggregator)
+        protected ShellViewModelState(IEventAggregator eventAggregator) : base(eventAggregator)
         {
+            this.Record = new DelegateCommand(this.SwitchToRecorder, () => !this.CanRecord);
+            this.Play = new DelegateCommand(this.SwitchToPlayer, () => !this.CanPlay);
         }
 
         public string Status
@@ -21,6 +26,10 @@ namespace Shell.ViewModels.States
             get { return Get(); }
             set { Set(value); }
         }
+
+        public ICommand Record { get; }
+
+        public ICommand Play { get; }
 
         public abstract bool CanRecord { get; }
 
