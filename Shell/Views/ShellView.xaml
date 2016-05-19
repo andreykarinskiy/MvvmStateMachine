@@ -9,13 +9,16 @@
         Width="525"
         Height="350"
         mc:Ignorable="d">
-    <Grid>
+    <StackPanel>
         <!--  mvvm:ViewModelLocator.AutoWireViewModel="True"  -->
-        <StackPanel>
+
+        <ContentControl mvvm:RegionManager.RegionName="Controls" />
+
+        <!--<StackPanel>
             <TextBlock Text="{Binding Status}" />
             <Button Command="{Binding Record}">Record</Button>
             <Button Command="{Binding Play}">Play</Button>
-        </StackPanel>
+        </StackPanel>-->
 
-    </Grid>
+    </StackPanel>
 </Window>

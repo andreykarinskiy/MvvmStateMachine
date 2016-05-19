@@ -2,10 +2,15 @@
 {
     using System;
     using System.Windows;
+
+    using MacroRecorder;
+
     using Microsoft.Practices.Unity;
 
     using MvvmFsm;
 
+    using Prism.Modularity;
+    using Prism.Mvvm;
     using Prism.Unity;
 
     using Shell.ViewModels.States;
@@ -13,6 +18,17 @@
 
     public class ShellBootstrapper : UnityBootstrapper, IDisposable
     {
+        protected override IModuleCatalog CreateModuleCatalog()
+        {
+            var catalog = new ModuleCatalog();
+
+            catalog
+                .AddModule(typeof(MacroPlayer.ModuleInitializer))
+                .AddModule(typeof(MacroRecorder.ModuleIntializer));
+
+            return catalog;
+        }
+
         protected override void ConfigureContainer()
         {
             base.ConfigureContainer();
@@ -22,6 +38,11 @@
                 .State<RecordViewModelState>("Record")
                 .State<PlayerViewModelState>("Player");
         }
+
+        //protected override void ConfigureViewModelLocator()
+        //{
+        //    ViewModelLocationProvider.SetDefaultViewModelFactory(t => Container.Resolve(t));
+        //}
 
         protected override DependencyObject CreateShell()
         {

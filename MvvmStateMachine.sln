@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmFsm", "MvvmFsm\MvvmFsm.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmFst.Tests", "MvvmFst.Tests\MvvmFst.Tests.csproj", "{B884800B-F1B8-49AC-AD42-81C66ABF47C3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MacroPlayer", "MacroPlayer\MacroPlayer.csproj", "{0C68461C-12CD-4947-8942-268AF86A11B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MacroRecorder", "MacroRecorder\MacroRecorder.csproj", "{FD2B2EA2-9EE0-416F-AC86-6C5AE7302B7B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{B884800B-F1B8-49AC-AD42-81C66ABF47C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B884800B-F1B8-49AC-AD42-81C66ABF47C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B884800B-F1B8-49AC-AD42-81C66ABF47C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C68461C-12CD-4947-8942-268AF86A11B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C68461C-12CD-4947-8942-268AF86A11B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C68461C-12CD-4947-8942-268AF86A11B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C68461C-12CD-4947-8942-268AF86A11B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD2B2EA2-9EE0-416F-AC86-6C5AE7302B7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD2B2EA2-9EE0-416F-AC86-6C5AE7302B7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD2B2EA2-9EE0-416F-AC86-6C5AE7302B7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD2B2EA2-9EE0-416F-AC86-6C5AE7302B7B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

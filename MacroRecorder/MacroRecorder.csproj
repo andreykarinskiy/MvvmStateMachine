@@ -4,19 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{51916DD8-7DC2-4E5C-9190-731FC7C7A239}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <ProjectGuid>{FD2B2EA2-9EE0-416F-AC86-6C5AE7302B7B}</ProjectGuid>
+    <OutputType>library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Shell</RootNamespace>
-    <AssemblyName>Shell</AssemblyName>
+    <RootNamespace>MacroRecorder</RootNamespace>
+    <AssemblyName>MacroRecorder</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -26,7 +24,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -80,30 +77,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
-    <Page Include="Views\ShellView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ShellBootstrapper.cs" />
-    <Compile Include="ViewModels\IShellViewModel.cs" />
-    <Compile Include="ViewModels\ShellViewModelViewModel.cs" />
-    <Compile Include="ViewModels\States\PlayerViewModelState.cs" />
-    <Compile Include="ViewModels\States\RecordViewModelState.cs" />
-    <Compile Include="ViewModels\States\ShellViewModelState.cs" />
-    <Compile Include="Views\ShellView.xaml.cs">
-      <DependentUpon>ShellView.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
+    <Compile Include="ModuleIntializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -117,6 +91,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="ViewModels\IRecorderViewModel.cs" />
+    <Compile Include="ViewModels\RecorderViewModel.cs" />
+    <Compile Include="Views\RecorderView.xaml.cs">
+      <DependentUpon>RecorderView.xaml</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -129,20 +108,14 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <Page Include="Views\RecorderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\MacroPlayer\MacroPlayer.csproj">
-      <Project>{0c68461c-12cd-4947-8942-268af86a11b5}</Project>
-      <Name>MacroPlayer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MacroRecorder\MacroRecorder.csproj">
-      <Project>{fd2b2ea2-9ee0-416f-ac86-6c5ae7302b7b}</Project>
-      <Name>MacroRecorder</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MvvmFsm\MvvmFsm.csproj">
-      <Project>{93b70d64-75da-4961-80eb-864aac19b0e3}</Project>
+      <Project>{93B70D64-75DA-4961-80EB-864AAC19B0E3}</Project>
       <Name>MvvmFsm</Name>
     </ProjectReference>
   </ItemGroup>
