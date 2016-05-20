@@ -11,21 +11,32 @@ namespace MacroRecorder.ViewModels
     using MvvmFsm;
 
     using Prism.Commands;
+    using Prism.Regions;
 
     public class RecorderViewModel : ViewModel, IRecorderViewModel
     {
-        public RecorderViewModel()
+        private readonly IRegionManager regionManager;
+
+        public RecorderViewModel(IRegionManager regionManager)
         {
+            this.regionManager = regionManager;
+
             this.Start = new DelegateCommand(this.StartRecording, () => this.CanStart);
             this.Pause = new DelegateCommand(this.PauseRecording, () => this.CanPause);
-            this.Start = new DelegateCommand(this.StopRecording, () => this.CanStop);
+            this.Stop = new DelegateCommand(this.StopRecording, () => this.CanStop);
+
+            this.Status = "recorder status";
         }
 
-        public string Status { get; }
+        public string Status
+        {
+            get { return Get(); }
+            set { Set(value); }
+        }
 
         public ICommand Start { get; }
 
-        public bool CanStart { get; } = true;
+        public bool CanStart { get; } = false;
 
         public ICommand Pause { get; }
 
@@ -33,18 +44,19 @@ namespace MacroRecorder.ViewModels
 
         public ICommand Stop { get; }
 
-        public bool CanStop { get; } = false;
+        public bool CanStop { get; } = true;
 
-        protected void StartRecording()
+        public void StartRecording()
         {
         }
 
-        protected void PauseRecording()
+        public void PauseRecording()
         {
         }
 
-        protected void StopRecording()
+        public void StopRecording()
         {
+            this.regionManager.RequestNavigate("Controls", "PlayerView");
         }
     }
 }

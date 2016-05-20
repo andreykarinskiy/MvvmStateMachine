@@ -9,6 +9,7 @@
              mc:Ignorable="d">
     <Grid>
         <StackPanel>
+            <TextBlock Text="{Binding Status}" />
             <Button Command="{Binding Start}">Start</Button>
             <Button Command="{Binding Pause}">Pause</Button>
             <Button Command="{Binding Stop}">Stop</Button>

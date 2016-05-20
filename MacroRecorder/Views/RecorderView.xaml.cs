@@ -24,14 +24,14 @@ namespace MacroRecorder.Views
     /// </summary>
     public partial class RecorderView : UserControl
     {
+        public RecorderView(RecorderViewModel viewModel) : this()
+        {
+            this.DataContext = viewModel;
+        }
+
         public RecorderView()
         {
             InitializeComponent();
-
-            this.Loaded += (sender, args) => this.DataContext = this.ViewModel;
         }
-
-        [Dependency]
-        public RecorderViewModel ViewModel { get; set; }
     }
 }
