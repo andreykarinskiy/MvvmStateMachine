@@ -14,5 +14,10 @@
         {
             eventAggregator.GetEvent<PubSubEvent<T>>().Publish(message);
         }
+
+        public static void Publish<T>(this IEventAggregator eventAggregator)
+        {
+            eventAggregator.GetEvent<PubSubEvent<T>>().Publish(default(T));
+        }
     }
 }

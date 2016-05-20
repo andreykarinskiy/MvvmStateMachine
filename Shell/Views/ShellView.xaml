@@ -11,14 +11,6 @@
         mc:Ignorable="d">
     <StackPanel>
         <!--  mvvm:ViewModelLocator.AutoWireViewModel="True"  -->
-
         <ContentControl mvvm:RegionManager.RegionName="Controls" />
-
-        <!--<StackPanel>
-            <TextBlock Text="{Binding Status}" />
-            <Button Command="{Binding Record}">Record</Button>
-            <Button Command="{Binding Play}">Play</Button>
-        </StackPanel>-->
-
     </StackPanel>
 </Window>

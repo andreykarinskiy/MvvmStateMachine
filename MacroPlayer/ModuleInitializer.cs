@@ -34,7 +34,8 @@ namespace MacroPlayer
                 .RegisterFsm<PlayerState>()
                 .State<ReadyState>("Ready");
 
-            this.regionManager.RegisterViewWithRegion("Controls", typeof(PlayerView));
+            regionManager
+                .AddToRegion("Controls", container.Resolve<PlayerView>());
         }
     }
 }

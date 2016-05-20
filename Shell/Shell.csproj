@@ -93,6 +93,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ShellBootstrapper.cs" />
+    <Compile Include="ShellInitialized.cs" />
     <Compile Include="ViewModels\IShellViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModelViewModel.cs" />
     <Compile Include="ViewModels\States\PlayerViewModelState.cs" />
@@ -144,6 +145,10 @@
     <ProjectReference Include="..\MvvmFsm\MvvmFsm.csproj">
       <Project>{93b70d64-75da-4961-80eb-864aac19b0e3}</Project>
       <Name>MvvmFsm</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Shell.API\Shell.API.csproj">
+      <Project>{ab6918b1-dc08-471d-9854-1c3c2d11ae7e}</Project>
+      <Name>Shell.API</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

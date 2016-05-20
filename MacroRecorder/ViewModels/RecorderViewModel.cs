@@ -8,43 +8,38 @@ namespace MacroRecorder.ViewModels
 {
     using System.Windows.Input;
 
+    using MacroRecorder.ViewModels.States;
+
+    using Microsoft.Practices.Unity;
+
     using MvvmFsm;
 
     using Prism.Commands;
+    using Prism.Events;
     using Prism.Regions;
 
-    public class RecorderViewModel : ViewModel, IRecorderViewModel
+    public class RecorderViewModel : StateableViewModel<RecorderState>, IRecorderViewModel
     {
         private readonly IRegionManager regionManager;
 
-        public RecorderViewModel(IRegionManager regionManager)
+        public RecorderViewModel([Dependency("Ready")]RecorderState initialViewModelState, RecorderState[] allViewModelStates, IEventAggregator eventAggregator, IRegionManager regionManager) : base(initialViewModelState, allViewModelStates, eventAggregator)
         {
             this.regionManager = regionManager;
-
-            this.Start = new DelegateCommand(this.StartRecording, () => this.CanStart);
-            this.Pause = new DelegateCommand(this.PauseRecording, () => this.CanPause);
-            this.Stop = new DelegateCommand(this.StopRecording, () => this.CanStop);
-
-            this.Status = "recorder status";
         }
 
-        public string Status
-        {
-            get { return Get(); }
-            set { Set(value); }
-        }
+        public string Status => this.CurrentState.Status;
 
-        public ICommand Start { get; }
+        public ICommand Start => this.CurrentState.Start;
 
-        public bool CanStart { get; } = false;
+        public bool CanStart => this.CurrentState.CanStart;
 
-        public ICommand Pause { get; }
+        public ICommand Pause => this.CurrentState.Pause;
 
-        public bool CanPause { get; } = false;
+        public bool CanPause => this.CurrentState.CanPause;
 
-        public ICommand Stop { get; }
+        public ICommand Stop => this.CurrentState.Stop;
 
-        public bool CanStop { get; } = true;
+        public bool CanStop => this.CurrentState.CanStop;
 
         public void StartRecording()
         {

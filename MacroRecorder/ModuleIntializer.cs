@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace MacroRecorder
 {
+    using MacroRecorder.ViewModels.States;
     using MacroRecorder.Views;
 
     using Microsoft.Practices.Unity;
+
+    using MvvmFsm;
 
     using Prism.Modularity;
     using Prism.Regions;
@@ -26,7 +29,12 @@ namespace MacroRecorder
 
         public void Initialize()
         {
-            this.regionManager.RegisterViewWithRegion("Controls", typeof(RecorderView));
+            container
+                .RegisterFsm<RecorderState>()
+                .State<ReadyState>("Ready");
+
+            regionManager
+                .AddToRegion("Controls", container.Resolve<RecorderView>());
         }
     }
 }

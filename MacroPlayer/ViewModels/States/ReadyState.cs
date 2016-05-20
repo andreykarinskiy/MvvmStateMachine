@@ -27,7 +27,6 @@ namespace MacroPlayer.ViewModels.States
         protected override void StartPlaying()
         {
             this.regionManager.RequestNavigate("Controls", "RecorderView");
-            //this.eventAggregator.Publish();
         }
 
         protected override void StopPlaying()

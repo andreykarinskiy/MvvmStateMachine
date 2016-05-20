@@ -7,12 +7,18 @@
 
     using Prism.Commands;
     using Prism.Events;
+    using Prism.Regions;
+
     using Shell.ViewModels.States;
 
     public class ShellViewModelViewModel : StateableViewModel<ShellViewModelState>, IShellViewModel
     {
-        public ShellViewModelViewModel([Dependency("Record")] ShellViewModelState initialViewModelState, ShellViewModelState[] allViewModelStates, IEventAggregator eventAggregator) : base(initialViewModelState, allViewModelStates, eventAggregator)
+        private readonly IRegionManager regionManager;
+
+        public ShellViewModelViewModel([Dependency("Record")] ShellViewModelState initialViewModelState, ShellViewModelState[] allViewModelStates, IEventAggregator eventAggregator, IRegionManager regionManager) : base(initialViewModelState, allViewModelStates, eventAggregator)
         {
+            this.regionManager = regionManager;
+            eventAggregator.Subscribe<ShellInitialized>(state => regionManager.RequestNavigate("Controls", "RecorderView"));
         }
 
         public ICommand Record => this.CurrentState.Record;

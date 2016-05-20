@@ -93,6 +93,8 @@
     </Compile>
     <Compile Include="ViewModels\IRecorderViewModel.cs" />
     <Compile Include="ViewModels\RecorderViewModel.cs" />
+    <Compile Include="ViewModels\States\ReadyState.cs" />
+    <Compile Include="ViewModels\States\RecorderState.cs" />
     <Compile Include="Views\RecorderView.xaml.cs">
       <DependentUpon>RecorderView.xaml</DependentUpon>
     </Compile>
@@ -111,6 +113,10 @@
     <ProjectReference Include="..\MvvmFsm\MvvmFsm.csproj">
       <Project>{93B70D64-75DA-4961-80EB-864AAC19B0E3}</Project>
       <Name>MvvmFsm</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Shell.API\Shell.API.csproj">
+      <Project>{ab6918b1-dc08-471d-9854-1c3c2d11ae7e}</Project>
+      <Name>Shell.API</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
