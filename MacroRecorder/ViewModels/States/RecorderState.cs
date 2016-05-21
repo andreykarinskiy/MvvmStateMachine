@@ -45,5 +45,10 @@ namespace MacroRecorder.ViewModels.States
         protected abstract void PauseRecording();
 
         protected abstract void StopRecording();
+
+        public override void Enter()
+        {
+            Status = GetType().Name;
+        }
     }
 }

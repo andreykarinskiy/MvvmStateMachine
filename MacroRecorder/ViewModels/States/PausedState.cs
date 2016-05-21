@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Prism.Events;
 
 namespace MacroRecorder.ViewModels.States
 {
-    using Prism.Events;
-
-    public class ReadyState : RecorderState
+    public class PausedState : RecorderState
     {
-        public ReadyState(IEventAggregator eventAggregator) : base(eventAggregator)
+        public PausedState(IEventAggregator eventAggregator) : base(eventAggregator)
         {
         }
 
@@ -18,7 +17,7 @@ namespace MacroRecorder.ViewModels.States
 
         public override bool CanPause => false;
 
-        public override bool CanStop => false;
+        public override bool CanStop => true;
 
         protected override void StartRecording()
         {
@@ -31,6 +30,7 @@ namespace MacroRecorder.ViewModels.States
 
         protected override void StopRecording()
         {
+            ChangeState<CompleteState>();
         }
     }
 }

@@ -3,34 +3,34 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Prism.Events;
 
 namespace MacroRecorder.ViewModels.States
 {
-    using Prism.Events;
-
-    public class ReadyState : RecorderState
+    public class RecordingState : RecorderState
     {
-        public ReadyState(IEventAggregator eventAggregator) : base(eventAggregator)
+        public RecordingState(IEventAggregator eventAggregator) : base(eventAggregator)
         {
         }
 
-        public override bool CanStart => true;
+        public override bool CanStart => false;
 
-        public override bool CanPause => false;
+        public override bool CanPause => true;
 
-        public override bool CanStop => false;
+        public override bool CanStop => true;
 
         protected override void StartRecording()
         {
-            ChangeState<RecordingState>();
         }
 
         protected override void PauseRecording()
         {
+            ChangeState<PausedState>();
         }
 
         protected override void StopRecording()
         {
+            ChangeState<CompleteState>();
         }
     }
 }

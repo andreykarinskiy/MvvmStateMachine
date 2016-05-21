@@ -31,7 +31,10 @@ namespace MacroRecorder
         {
             container
                 .RegisterFsm<RecorderState>()
-                .State<ReadyState>("Ready");
+                .State<ReadyState>("Ready")
+                .State<RecordingState>("Recording")
+                .State<PausedState>("Paused")
+                .State<CompleteState>("Complete");
 
             regionManager
                 .AddToRegion("Controls", container.Resolve<RecorderView>());

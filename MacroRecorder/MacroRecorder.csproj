@@ -93,8 +93,11 @@
     </Compile>
     <Compile Include="ViewModels\IRecorderViewModel.cs" />
     <Compile Include="ViewModels\RecorderViewModel.cs" />
+    <Compile Include="ViewModels\States\CompleteState.cs" />
+    <Compile Include="ViewModels\States\PausedState.cs" />
     <Compile Include="ViewModels\States\ReadyState.cs" />
     <Compile Include="ViewModels\States\RecorderState.cs" />
+    <Compile Include="ViewModels\States\RecordingState.cs" />
     <Compile Include="Views\RecorderView.xaml.cs">
       <DependentUpon>RecorderView.xaml</DependentUpon>
     </Compile>
