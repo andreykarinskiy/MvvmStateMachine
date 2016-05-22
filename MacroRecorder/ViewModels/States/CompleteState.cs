@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MacroRecorder.Services;
 using Prism.Events;
 
 namespace MacroRecorder.ViewModels.States
 {
     public class CompleteState : RecorderState
     {
-        public CompleteState(IEventAggregator eventAggregator) : base(eventAggregator)
+        public CompleteState(IEventProducer eventProducer, IEventAggregator eventAggregator) : base(eventProducer, eventAggregator)
         {
         }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MacroRecorder.Services;
 
 namespace MacroRecorder
 {
@@ -29,6 +30,9 @@ namespace MacroRecorder
 
         public void Initialize()
         {
+            container
+                .RegisterType<IEventProducer, FakeEventProducer>(new ContainerControlledLifetimeManager());
+
             container
                 .RegisterFsm<RecorderState>()
                 .State<ReadyState>("Ready")

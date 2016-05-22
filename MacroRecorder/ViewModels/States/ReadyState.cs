@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MacroRecorder.Services;
 
 namespace MacroRecorder.ViewModels.States
 {
@@ -10,7 +11,7 @@ namespace MacroRecorder.ViewModels.States
 
     public class ReadyState : RecorderState
     {
-        public ReadyState(IEventAggregator eventAggregator) : base(eventAggregator)
+        public ReadyState(IEventProducer eventProducer, IEventAggregator eventAggregator) : base(eventProducer, eventAggregator)
         {
         }
 

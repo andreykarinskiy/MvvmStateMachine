@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MacroRecorder.Services;
 
 namespace MacroRecorder.ViewModels.States
 {
@@ -15,8 +16,11 @@ namespace MacroRecorder.ViewModels.States
 
     public abstract class RecorderState : ViewModelState, IRecorderViewModel
     {
-        protected RecorderState(IEventAggregator eventAggregator) : base(eventAggregator)
+        protected readonly IEventProducer eventProducer;
+
+        protected RecorderState(IEventProducer eventProducer, IEventAggregator eventAggregator) : base(eventAggregator)
         {
+            this.eventProducer = eventProducer;
             this.Start = new DelegateCommand(this.StartRecording, () => this.CanStart);
             this.Pause = new DelegateCommand(this.PauseRecording, () => this.CanPause);
             this.Stop = new DelegateCommand(this.StopRecording, () => this.CanStop);
