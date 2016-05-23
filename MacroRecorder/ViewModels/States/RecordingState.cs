@@ -23,6 +23,7 @@ namespace MacroRecorder.ViewModels.States
 
         public override void Enter()
         {
+            //
             eventProducer.Start();
         }
 
