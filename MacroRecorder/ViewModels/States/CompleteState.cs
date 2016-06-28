@@ -8,6 +8,8 @@ using Prism.Events;
 
 namespace MacroRecorder.ViewModels.States
 {
+    using MvvmFsm;
+
     public class CompleteState : RecorderState
     {
         public CompleteState(IEventProducer eventProducer, IEventAggregator eventAggregator) : base(eventProducer, eventAggregator)
@@ -30,6 +32,11 @@ namespace MacroRecorder.ViewModels.States
 
         protected override void StopRecording()
         {
+        }
+
+        public override void Enter()
+        {
+            this.ChangeState<ReadyState>(delay: 1.Second());
         }
     }
 }

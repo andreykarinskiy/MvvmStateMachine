@@ -1,5 +1,8 @@
 ﻿namespace MvvmFsm
 {
+    using System;
+    using System.Threading.Tasks;
+
     using Prism.Events;
 
     public abstract class ViewModelState : HierarchicalViewModel
@@ -16,16 +19,29 @@
         {
         }
 
-        protected virtual void ChangeState(Trigger trigger)
+        protected virtual void ChangeState(Trigger trigger, TimeSpan? delay)
         {
-            eventAggregator.Publish(trigger);
-
-            OnPropertyChanged(string.Empty);
+            if (delay != null)
+            {
+                Task
+                    .Delay(delay.Value)
+                    .ContinueWith(task => Fire(trigger));
+            }
+            else
+            {
+                Fire(trigger);
+            }
         }
 
-        protected virtual void ChangeState<TState>() where TState : ViewModelState
+        protected virtual void ChangeState<TState>(TimeSpan? delay = null) where TState : ViewModelState
         {
-            ChangeState(new Trigger<TState>());
+            ChangeState(new Trigger<TState>(), delay);
+        }
+
+        private void Fire(Trigger trigger)
+        {
+            eventAggregator.Publish(trigger);
+            OnPropertyChanged(string.Empty);
         }
     }
 }
