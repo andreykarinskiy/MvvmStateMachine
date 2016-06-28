@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shell.API", "Shell.API\Shel
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MacroRecorder.Tests", "MacroRecorder.Tests\MacroRecorder.Tests.csproj", "{F2BBFEB9-2F3B-4ED4-B15E-954E89B54FD0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonControls", "CommonControls\CommonControls.csproj", "{59FC8FB6-845B-481D-99D7-E19AFB0040C0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{F2BBFEB9-2F3B-4ED4-B15E-954E89B54FD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2BBFEB9-2F3B-4ED4-B15E-954E89B54FD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2BBFEB9-2F3B-4ED4-B15E-954E89B54FD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59FC8FB6-845B-481D-99D7-E19AFB0040C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59FC8FB6-845B-481D-99D7-E19AFB0040C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59FC8FB6-845B-481D-99D7-E19AFB0040C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59FC8FB6-845B-481D-99D7-E19AFB0040C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

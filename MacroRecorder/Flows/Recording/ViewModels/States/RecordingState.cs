@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MacroRecorder.Services;
-using Prism.Events;
-
-namespace MacroRecorder.ViewModels.States
+﻿namespace MacroRecorder.Flows.Recording.ViewModels.States
 {
+    using System;
+
+    using MacroRecorder.Services;
+
+    using Prism.Events;
+
     public class RecordingState : RecorderState
     {
         public RecordingState(IEventProducer eventProducer, IEventAggregator eventAggregator) : base(eventProducer, eventAggregator)
@@ -24,12 +22,12 @@ namespace MacroRecorder.ViewModels.States
         public override void Enter()
         {
             //
-            eventProducer.Start();
+            this.eventProducer.Start();
         }
 
         public override void Exit()
         {
-            eventProducer.Stop();
+            this.eventProducer.Stop();
         }
 
         protected override void StartRecording()
@@ -38,12 +36,12 @@ namespace MacroRecorder.ViewModels.States
 
         protected override void PauseRecording()
         {
-            ChangeState<PausedState>();
+            this.ChangeState<PausedState>();
         }
 
         protected override void StopRecording()
         {
-            ChangeState<CompleteState>();
+            this.ChangeState<CompleteState>();
         }
     }
 }

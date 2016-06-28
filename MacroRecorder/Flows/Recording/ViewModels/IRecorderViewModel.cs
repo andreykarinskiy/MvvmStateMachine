@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MacroRecorder.ViewModels
+﻿namespace MacroRecorder.Flows.Recording.ViewModels
 {
     using System.Windows.Input;
-
-    using Prism.Events;
 
     public interface IRecorderViewModel
     {

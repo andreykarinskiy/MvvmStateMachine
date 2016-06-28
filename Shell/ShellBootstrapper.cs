@@ -5,7 +5,6 @@
     using System.Windows.Controls;
 
     using MacroRecorder;
-    using MacroRecorder.Views;
 
     using Microsoft.Practices.Unity;
 

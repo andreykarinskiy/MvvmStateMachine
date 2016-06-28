@@ -1,20 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MacroRecorder.ViewModels
+﻿namespace MacroRecorder.Flows.Recording.ViewModels
 {
     using System.Windows.Input;
 
-    using MacroRecorder.ViewModels.States;
+    using MacroRecorder.Flows.Recording.ViewModels.States;
 
     using Microsoft.Practices.Unity;
 
     using MvvmFsm;
 
-    using Prism.Commands;
     using Prism.Events;
     using Prism.Regions;
 

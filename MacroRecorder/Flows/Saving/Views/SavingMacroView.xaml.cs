@@ -13,24 +13,18 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MacroRecorder.Views
+namespace MacroRecorder.Flows.Saving.Views
 {
-    using MacroRecorder.ViewModels;
-
-    using Microsoft.Practices.Unity;
+    using MacroRecorder.Flows.Saving.ViewModels;
 
     /// <summary>
-    /// Логика взаимодействия для RecorderView.xaml
+    /// Логика взаимодействия для SavingMacroView.xaml
     /// </summary>
-    public partial class RecorderView : UserControl
+    public partial class SavingMacroView : UserControl
     {
-        public RecorderView(RecorderViewModel viewModel) : this()
+        public SavingMacroView(SavingMacroViewModel viewModel)
         {
-            this.DataContext = viewModel;
-        }
-
-        public RecorderView()
-        {
+            DataContext = viewModel;
             InitializeComponent();
         }
     }

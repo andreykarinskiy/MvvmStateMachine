@@ -93,6 +93,13 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Flows\Saving\ViewModels\ISavingMacroViewModel.cs" />
+    <Compile Include="Flows\Saving\ViewModels\SavingMacroViewModel.cs" />
+    <Compile Include="Flows\Saving\ViewModels\States\ReadyState.cs" />
+    <Compile Include="Flows\Saving\ViewModels\States\SavingState.cs" />
+    <Compile Include="Flows\Saving\Views\SavingMacroView.xaml.cs">
+      <DependentUpon>SavingMacroView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ModuleIntializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -110,14 +117,14 @@
     <Compile Include="Services\FakeEventProducer.cs" />
     <Compile Include="Services\IEventProducer.cs" />
     <Compile Include="Services\WindowsEvent.cs" />
-    <Compile Include="ViewModels\IRecorderViewModel.cs" />
-    <Compile Include="ViewModels\RecorderViewModel.cs" />
-    <Compile Include="ViewModels\States\CompleteState.cs" />
-    <Compile Include="ViewModels\States\PausedState.cs" />
-    <Compile Include="ViewModels\States\ReadyState.cs" />
-    <Compile Include="ViewModels\States\RecorderState.cs" />
-    <Compile Include="ViewModels\States\RecordingState.cs" />
-    <Compile Include="Views\RecorderView.xaml.cs">
+    <Compile Include="Flows\Recording\ViewModels\IRecorderViewModel.cs" />
+    <Compile Include="Flows\Recording\ViewModels\RecorderViewModel.cs" />
+    <Compile Include="Flows\Recording\ViewModels\States\CompleteState.cs" />
+    <Compile Include="Flows\Recording\ViewModels\States\PausedState.cs" />
+    <Compile Include="Flows\Recording\ViewModels\States\ReadyState.cs" />
+    <Compile Include="Flows\Recording\ViewModels\States\RecorderState.cs" />
+    <Compile Include="Flows\Recording\ViewModels\States\RecordingState.cs" />
+    <Compile Include="Flows\Recording\Views\RecorderView.xaml.cs">
       <DependentUpon>RecorderView.xaml</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -132,6 +139,10 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CommonControls\CommonControls.csproj">
+      <Project>{59fc8fb6-845b-481d-99d7-e19afb0040c0}</Project>
+      <Name>CommonControls</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MvvmFsm\MvvmFsm.csproj">
       <Project>{93B70D64-75DA-4961-80EB-864AAC19B0E3}</Project>
       <Name>MvvmFsm</Name>
@@ -142,11 +153,16 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\RecorderView.xaml">
+    <Page Include="Flows\Recording\Views\RecorderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Flows\Saving\Views\SavingMacroView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

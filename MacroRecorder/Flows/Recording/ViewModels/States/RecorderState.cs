@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MacroRecorder.Services;
-
-namespace MacroRecorder.ViewModels.States
+﻿namespace MacroRecorder.Flows.Recording.ViewModels.States
 {
     using System.Windows.Input;
+
+    using MacroRecorder.Services;
 
     using MvvmFsm;
 
@@ -28,8 +23,8 @@ namespace MacroRecorder.ViewModels.States
 
         public string Status
         {
-            get { return Get(); }
-            set { Set(value); }
+            get { return this.Get(); }
+            set { this.Set(value); }
         }
 
         public ICommand Start { get; }
@@ -52,7 +47,7 @@ namespace MacroRecorder.ViewModels.States
 
         public override void Enter()
         {
-            Status = GetType().Name;
+            this.Status = this.GetType().Name;
         }
     }
 }

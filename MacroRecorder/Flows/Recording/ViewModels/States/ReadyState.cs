@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MacroRecorder.Services;
-
-namespace MacroRecorder.ViewModels.States
+﻿namespace MacroRecorder.Flows.Recording.ViewModels.States
 {
+    using MacroRecorder.Services;
+
     using Prism.Events;
 
     public class ReadyState : RecorderState
@@ -23,7 +18,7 @@ namespace MacroRecorder.ViewModels.States
 
         protected override void StartRecording()
         {
-            ChangeState<RecordingState>();
+            this.ChangeState<RecordingState>();
         }
 
         protected override void PauseRecording()

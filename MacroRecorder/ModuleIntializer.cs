@@ -7,8 +7,9 @@ using MacroRecorder.Services;
 
 namespace MacroRecorder
 {
-    using MacroRecorder.ViewModels.States;
-    using MacroRecorder.Views;
+    using MacroRecorder.Flows.Recording.ViewModels.States;
+    using MacroRecorder.Flows.Recording.Views;
+    using MacroRecorder.Flows.Saving.ViewModels.States;
 
     using Microsoft.Practices.Unity;
 
@@ -16,6 +17,8 @@ namespace MacroRecorder
 
     using Prism.Modularity;
     using Prism.Regions;
+
+    using ReadyState = MacroRecorder.Flows.Recording.ViewModels.States.ReadyState;
 
     public class ModuleIntializer : IModule
     {
@@ -39,6 +42,13 @@ namespace MacroRecorder
                 .State<RecordingState>("Recording")
                 .State<PausedState>("Paused")
                 .State<CompleteState>("Complete");
+
+            container
+                .RegisterFsm<SavingState>()
+                .State<Flows.Saving.ViewModels.States.ReadyState>("Saving.Ready");
+
+            container
+                .RegisterType<IDialogService, ModalDialogService>();
 
             regionManager
                 .AddToRegion("Controls", container.Resolve<RecorderView>());
