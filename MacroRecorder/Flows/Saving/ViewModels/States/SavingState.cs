@@ -5,13 +5,19 @@ using Prism.Events;
 
 namespace MacroRecorder.Flows.Saving.ViewModels.States
 {
+    using Prism.Interactivity.InteractionRequest;
+
     public abstract class SavingState : ViewModelState, ISavingMacroViewModel
     {
         protected SavingState(IEventAggregator eventAggregator) : base(eventAggregator)
         {
             this.Save = new DelegateCommand(this.SaveMacro, () => this.CanSave);
             this.Cancel = new DelegateCommand(this.CancelSaving, () => this.CanCancel);
+
+            this.SavingConfirmation = new Confirmation { Confirmed = false };
         }
+
+        public IConfirmation SavingConfirmation { get; set; }
 
         public string MacroName { get; set; }
 

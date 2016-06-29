@@ -17,6 +17,8 @@ namespace MacroRecorder.Flows.Saving.Views
 {
     using MacroRecorder.Flows.Saving.ViewModels;
 
+    using Microsoft.Practices.Unity;
+
     /// <summary>
     /// Логика взаимодействия для SavingMacroView.xaml
     /// </summary>
@@ -24,8 +26,8 @@ namespace MacroRecorder.Flows.Saving.Views
     {
         public SavingMacroView(SavingMacroViewModel viewModel)
         {
-            DataContext = viewModel;
             InitializeComponent();
+            DataContext = viewModel;
         }
     }
 }

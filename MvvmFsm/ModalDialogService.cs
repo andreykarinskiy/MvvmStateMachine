@@ -28,8 +28,6 @@ namespace MvvmFsm
 
         public IConfirmation Show(string title, ViewModel viewModel)
         {
-            //var views = this.container.
-
             var vmType = viewModel.GetType();
             var assembly = vmType.Assembly;
             var s = assembly
@@ -38,11 +36,16 @@ namespace MvvmFsm
                 .Where(t => t.Name.StartsWith("Saving"));
 
             var window = new DialogWindow();
-            var view = s.First();
+
+            var viewType = s.First();
+            var view = this.container.Resolve(viewType);
             window.Content = view;
             window.ShowDialog();
 
-            return null;
+            dynamic vm = viewModel;
+            IConfirmation confirmation = vm.SavingConfirmation;
+
+            return confirmation;
         }
     }
 }

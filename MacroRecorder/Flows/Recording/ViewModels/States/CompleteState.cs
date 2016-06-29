@@ -1,5 +1,7 @@
 ﻿namespace MacroRecorder.Flows.Recording.ViewModels.States
 {
+    using System;
+
     using MacroRecorder.Flows.Saving.ViewModels;
     using MacroRecorder.Services;
 
@@ -40,8 +42,21 @@
 
         public override void Enter()
         {
-            this.dialogService.Show("title", this.container.Resolve<SavingMacroViewModel>());
-            //this.ChangeState<ReadyState>(delay: 1.Second());
+            var confirmation = dialogService.Show("title", this.container.Resolve<SavingMacroViewModel>());
+
+            if (confirmation == null)
+            {
+                throw new NotImplementedException();
+            }
+
+            if (confirmation.Confirmed)
+            {
+                
+            }
+            else
+            {
+                ChangeState<ReadyState>(delay: 1.Second());
+            }
         }
     }
 }

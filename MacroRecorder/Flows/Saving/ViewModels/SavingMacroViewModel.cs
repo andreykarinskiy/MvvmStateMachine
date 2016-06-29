@@ -14,12 +14,15 @@ namespace MacroRecorder.Flows.Saving.ViewModels
     using Microsoft.Practices.Unity;
 
     using Prism.Events;
+    using Prism.Interactivity.InteractionRequest;
 
     public class SavingMacroViewModel : StateableViewModel<SavingState>, ISavingMacroViewModel
     {
         public SavingMacroViewModel([Dependency("Saving.Ready")]SavingState initialViewModelState, SavingState[] allViewModelStates, IEventAggregator eventAggregator) : base(initialViewModelState, allViewModelStates, eventAggregator)
         {
         }
+
+        public IConfirmation SavingConfirmation => this.CurrentState.SavingConfirmation;
 
         public string MacroName
         {
@@ -29,6 +32,10 @@ namespace MacroRecorder.Flows.Saving.ViewModels
 
         public ICommand Save => this.CurrentState.Save;
 
+        public bool CanSave => this.CurrentState.CanSave;
+
         public ICommand Cancel => this.CurrentState.Cancel;
+
+        public bool CanCancel => this.CurrentState.CanCancel;
     }
 }
