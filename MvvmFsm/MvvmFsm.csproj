@@ -68,7 +68,9 @@
     <Compile Include="EventAggregatorExtension.cs" />
     <Compile Include="HierarchicalViewModel.cs" />
     <Compile Include="IDialogService.cs" />
+    <Compile Include="InvalidStateException.cs" />
     <Compile Include="ModalDialogService.cs" />
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -30,14 +30,17 @@
 
         protected override void StartRecording()
         {
+            throw new InvalidStateException(this);
         }
 
         protected override void PauseRecording()
         {
+            throw new InvalidStateException(this);
         }
 
         protected override void StopRecording()
         {
+            throw new InvalidStateException(this);
         }
 
         public override void Enter()

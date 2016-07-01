@@ -31,6 +31,7 @@ namespace MacroPlayer.ViewModels.States
 
         protected override void StopPlaying()
         {
+            throw new InvalidStateException(this);
         }
     }
 }

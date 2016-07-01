@@ -33,18 +33,5 @@
         public ICommand Stop => this.CurrentState.Stop;
 
         public bool CanStop => this.CurrentState.CanStop;
-
-        public void StartRecording()
-        {
-        }
-
-        public void PauseRecording()
-        {
-        }
-
-        public void StopRecording()
-        {
-            this.regionManager.RequestNavigate("Controls", "PlayerView");
-        }
     }
 }

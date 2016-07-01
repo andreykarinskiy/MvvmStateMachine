@@ -1,4 +1,6 @@
-﻿namespace MacroRecorder.Flows.Recording.ViewModels.States
+﻿using MvvmFsm;
+
+namespace MacroRecorder.Flows.Recording.ViewModels.States
 {
     using MacroRecorder.Services;
 
@@ -23,6 +25,7 @@
 
         protected override void PauseRecording()
         {
+            throw new InvalidStateException(this);
         }
 
         protected override void StopRecording()

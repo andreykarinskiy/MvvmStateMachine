@@ -1,4 +1,6 @@
-﻿namespace MacroRecorder.Flows.Recording.ViewModels.States
+﻿using MvvmFsm;
+
+namespace MacroRecorder.Flows.Recording.ViewModels.States
 {
     using System;
 
@@ -21,7 +23,6 @@
 
         public override void Enter()
         {
-            //
             this.eventProducer.Start();
         }
 
@@ -32,6 +33,7 @@
 
         protected override void StartRecording()
         {
+            throw new InvalidStateException(this);
         }
 
         protected override void PauseRecording()
