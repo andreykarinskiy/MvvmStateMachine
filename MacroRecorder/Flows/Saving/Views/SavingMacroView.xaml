@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:mvvm="clr-namespace:MvvmFsm;assembly=MvvmFsm"
              d:DesignHeight="300"
              d:DesignWidth="300"
              mc:Ignorable="d">
@@ -20,8 +21,10 @@
                                    VerticalAlignment="Top" />
 
         <StackPanel Grid.Row="1" Orientation="Horizontal">
-            <Button Command="{Binding Save}">Save</Button>
-            <Button Command="{Binding Cancel}">Cancel</Button>
+            <Button Command="{Binding Save}"
+                    mvvm:Dialog.CloseOnClick="True">Save</Button>
+            <Button Command="{Binding Cancel}"
+                    mvvm:Dialog.CloseOnClick="True">Cancel</Button>
         </StackPanel>
 
     </Grid>

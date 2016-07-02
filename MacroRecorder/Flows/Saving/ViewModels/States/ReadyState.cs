@@ -23,7 +23,7 @@ namespace MacroRecorder.Flows.Saving.ViewModels.States
 
         protected override void SaveMacro()
         {
-            throw new NotImplementedException();
+            this.SavingConfirmation = new Confirmation { Confirmed = true };
         }
 
         protected override void CancelSaving()

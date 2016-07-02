@@ -64,6 +64,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dialog.cs" />
     <Compile Include="ContainerExtension.cs" />
     <Compile Include="EventAggregatorExtension.cs" />
     <Compile Include="HierarchicalViewModel.cs" />
