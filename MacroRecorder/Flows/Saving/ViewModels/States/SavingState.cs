@@ -19,7 +19,11 @@ namespace MacroRecorder.Flows.Saving.ViewModels.States
 
         public IConfirmation SavingConfirmation { get; set; }
 
-        public string MacroName { get; set; }
+        public string MacroName
+        {
+            get { return Get<string>(); }
+            set { Set(value);}
+        }
 
         public ICommand Save { get; }
 

@@ -54,7 +54,7 @@
 
             if (confirmation.Confirmed)
             {
-                
+                var macroName = confirmation.Content;
             }
             else
             {

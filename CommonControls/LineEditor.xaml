@@ -6,11 +6,16 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              d:DesignHeight="300"
              d:DesignWidth="300"
-             mc:Ignorable="d">
-    <StackPanel Margin="4, 4, 4, 4" Orientation="Vertical">
+             mc:Ignorable="d"
+             Name="Root">
+    <StackPanel Margin="4, 4, 4, 4"
+                Orientation="Vertical">
         <TextBlock Text="{Binding Header}">header:</TextBlock>
         <StackPanel Orientation="Horizontal">
-            <TextBox Width="180" Text="{Binding Text}" />
+            <TextBox Width="180"
+                     Text="{Binding Text, 
+                                    RelativeSource={RelativeSource FindAncestor,
+                                    AncestorType=UserControl}}" />
             <Button Command="{Binding ClearText}">x</Button>
         </StackPanel>
     </StackPanel>

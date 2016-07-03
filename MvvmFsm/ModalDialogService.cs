@@ -36,6 +36,8 @@ namespace MvvmFsm
                 .Where(t => t.Name.StartsWith("Saving"));
 
             var window = new DialogWindow();
+            window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            window.SizeToContent = SizeToContent.WidthAndHeight;
 
             var viewType = s.First();
             var view = this.container.Resolve(viewType);
